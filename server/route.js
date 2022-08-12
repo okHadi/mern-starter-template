@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
     try {
-        db.findOne({ _id: req.params.id }).exec(err, docs){
+        db.findOne({ _id: req.params.id }).exec(function (err, docs) {
             if (err) {
                 return res.status(500).json({ message: "Error" + err });
             }
@@ -46,7 +46,7 @@ router.patch('/:id', async (req, res) => {
                 db.update({ _id: req.params.id }, req.body, { upsert: false })
                 return res.json({ message: "Data updated successfully" })
             }
-        }
+        })
     }
     catch (error) {
         res.status(500).json({ message: "" + error });
@@ -71,3 +71,5 @@ router.delete("/:id", async (req, res) => {
         res.status(500).json({ message: "" + error });
     }
 });
+
+module.exports = router
