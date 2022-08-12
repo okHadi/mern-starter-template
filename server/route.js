@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const dataBase = require('nedb')
-const db = new dataBase({ filename: 'server/database/database.db', autoload: true })
+const db = new dataBase({ filename: 'database/database.db', autoload: true })
 
 
 //-----------------------------------Routes--------------------------------------------//

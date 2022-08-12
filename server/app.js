@@ -4,7 +4,7 @@ const port = 8081
 
 const route = require('./route')
 
-app.use('blogs/api/v1', route)
+app.use('/api/v1', route)
 
 
 
