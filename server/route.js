@@ -6,13 +6,14 @@ const db = new dataBase({ filename: 'database/database.db', autoload: true })
 
 //-----------------------------------Routes--------------------------------------------//
 
-router.get("/", async (req, res) => {
+router.get("/home", async (req, res) => {
     try {
         db.find({}).exec(function (err, docs) {
             if (err) {
                 return res.status(500).json({ message: "Error" + err });
             }
-            res.send(docs);
+            //res.send(docs);
+            res.send(docs)
         });
     } catch (error) {
         res.status(500).json({ message: "" + error });
